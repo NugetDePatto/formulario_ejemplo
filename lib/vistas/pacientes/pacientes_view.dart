@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:formulario_ejemplo/vistas/pacientes/crear_pacientes_view.dart';
 
 class PacientesView extends StatefulWidget {
   const PacientesView({super.key});
@@ -27,7 +26,6 @@ class _PacientesViewState extends State<PacientesView> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // va a mostrar el formulario para crear un nuevo paciente
           Navigator.pushNamed(context, '/crear_paciente');
         },
         child: const Icon(Icons.add),

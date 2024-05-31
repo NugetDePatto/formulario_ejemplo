@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:formulario_ejemplo/vistas/pacientes/crear_pacientes_controller.dart';
-import 'package:cupertino_date_textbox/cupertino_date_textbox.dart';
+import 'package:formulario_ejemplo/widgets/custom_datetextbox.dart';
+import 'package:formulario_ejemplo/widgets/custom_dropdownbutton.dart';
+import 'package:formulario_ejemplo/widgets/custom_radiobutton.dart';
+import 'package:formulario_ejemplo/widgets/custom_textfield.dart';
 
 class CrearPacienteView extends StatefulWidget {
   const CrearPacienteView({super.key});
@@ -11,6 +14,7 @@ class CrearPacienteView extends StatefulWidget {
 
 class _CrearPacienteViewState extends State<CrearPacienteView> {
   CrearPacientesController controller = CrearPacientesController();
+  String nombre = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,145 +23,62 @@ class _CrearPacienteViewState extends State<CrearPacienteView> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
+        child: ListView(
           children: [
-            Row(
-              children: [
-                Text(
-                  'Nombre',
-                  style: TextStyle(fontSize: 16, color: Colors.grey.shade700),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            const TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-              ),
+            CustomTextField(
+              nombre: 'Nombre del paciente',
+              alCambiar: (valor) {
+                print(valor); //les toca a los que faltaron ayer dijiste que no
+              },
             ),
             const SizedBox(height: 20),
-            Row(
-              children: [
-                Text(
-                  'Matricula',
-                  style: TextStyle(fontSize: 16, color: Colors.grey.shade700),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            const TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-              ),
+            CustomTextField(
+              nombre: 'Matricula del paciente',
+              alCambiar: (valor) {
+                print(valor);
+              },
             ),
             const SizedBox(height: 20),
-            Row(
-              children: [
-                Text(
-                  'Facultad',
-                  style: TextStyle(fontSize: 16, color: Colors.grey.shade700),
-                ),
+            CustomDropDonButton(
+              nombre: 'Facultad',
+              alCambiar: (valor) {
+                print(valor);
+              },
+              opciones: const [
+                'Facultad de Enfermería',
+                'Facultad de Ingeniería',
+                'Facultad de Medicina',
+                'Facultad de Comercio y Administración',
+                'Facultad de Derecho y Ciencias Sociales',
+                'Facultad de Arquitectura, Diseño y Urbanismo',
+                'Facultad de Odontología',
+                'Facultad de Musica y Artes',
               ],
-            ),
-            const SizedBox(height: 10),
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey.shade700),
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: DropdownButton<String>(
-                value: controller.facultadSeleccionada,
-                items: [
-                  //for each
-                  for (String facultad in controller.facultades)
-                    DropdownMenuItem(
-                      value: facultad,
-                      child: Text(facultad),
-                    )
-                ],
-                onChanged: (String? value) {
-                  setState(() {
-                    controller.facultadSeleccionada = value!;
-                  });
-                },
-                underline: Container(),
-                hint: const Text('Facultad'),
-                isExpanded: true,
-                padding: const EdgeInsets.all(10),
-              ),
             ),
             const SizedBox(height: 20),
-            Row(
-              children: [
-                Text(
-                  'Fecha de nacimiento',
-                  style: TextStyle(fontSize: 16, color: Colors.grey.shade700),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            CupertinoDateTextBox(
-              initialValue: DateTime.now(),
-              onDateChange: (DateTime date) {
+            CustomDateTextBox(
+              nombre: 'Fecha de Nacimiento',
+              alCambiar: (DateTime date) {
                 print(date);
               },
-              hintText: 'Fecha de nacimiento',
             ),
             const SizedBox(height: 20),
-            Row(
-              children: [
-                Text(
-                  'Sexo',
-                  style: TextStyle(fontSize: 16, color: Colors.grey.shade700),
-                ),
+            CustomRadioButton(
+              nombre: 'Sexo',
+              alCambiar: (value) {
+                print(value);
+              },
+              opciones: const [
+                'Femenino',
+                'Masculino',
+                'Prefiero no decirlo',
               ],
             ),
-            const SizedBox(height: 10),
-            Wrap(
-              children: [
-                Row(
-                  children: [
-                    Radio(
-                      value: 'Masculino',
-                      groupValue: controller.sexoSeleccionado,
-                      onChanged: (value) {
-                        setState(() {
-                          controller.sexoSeleccionado = value.toString();
-                        });
-                      },
-                    ),
-                    const Text('Masculino'),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Radio(
-                      value: 'Femenino',
-                      groupValue: controller.sexoSeleccionado,
-                      onChanged: (value) {
-                        setState(() {
-                          controller.sexoSeleccionado = value.toString();
-                        });
-                      },
-                    ),
-                    const Text('Femenino'),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Radio(
-                      value: 'Prefiero no decirlo',
-                      groupValue: controller.sexoSeleccionado,
-                      onChanged: (value) {
-                        setState(() {
-                          controller.sexoSeleccionado = value.toString();
-                        });
-                      },
-                    ),
-                    const Text('Prefiero no decirlo'),
-                  ],
-                ),
-              ],
+            ElevatedButton(
+              onPressed: () {
+                print(nombre);
+              },
+              child: const Text('Guardar'),
             ),
           ],
         ),

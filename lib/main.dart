@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:formulario_ejemplo/valores/rutas.dart';
-import 'package:formulario_ejemplo/vistas/navigation/navigation_view.dart';
 
 void main() {
   runApp(const MyApp());

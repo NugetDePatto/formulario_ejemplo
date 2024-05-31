@@ -16,6 +16,8 @@ class _NavigationViewState extends State<NavigationView> {
       appBar: AppBar(
         title: const Text('Navigation View'),
       ),
+
+      /// Este widget es para poner un menu en la parte inferior de la pantalla
       // bottomNavigationBar: BottomNavigationBar(
       //   items: const <BottomNavigationBarItem>[
       //     BottomNavigationBarItem(
@@ -37,6 +39,7 @@ class _NavigationViewState extends State<NavigationView> {
       drawer: Drawer(
         child: ListView(
           children: [
+            /// Con este widget se le puede poner una imagen, es como un encabezado
             // const DrawerHeader(
             //   decoration: BoxDecoration(
             //     color: Colors.blue,
@@ -46,7 +49,6 @@ class _NavigationViewState extends State<NavigationView> {
             //     style: TextStyle(
             //       color: Colors.white,
             //       fontSize: 24,
-            //se le puede poner una imagen
             //     ),
             //   ),
             // ),
@@ -69,9 +71,6 @@ class _NavigationViewState extends State<NavigationView> {
                 setState(() {});
               },
             ),
-            // Pacientes (agregar, ver, editar, elimnar pacientes)
-            // Crear Formulario
-            // Graficas (ver graficas de pacientes)
             ListTile(
               title: const Text('Crear Formulario'),
               onTap: () {
@@ -80,7 +79,6 @@ class _NavigationViewState extends State<NavigationView> {
                 setState(() {});
               },
             ),
-
             ListTile(
               title: const Text('Pacientes'),
               onTap: () {
@@ -89,7 +87,6 @@ class _NavigationViewState extends State<NavigationView> {
                 setState(() {});
               },
             ),
-
             ListTile(
               title: const Text('Graficas'),
               onTap: () {

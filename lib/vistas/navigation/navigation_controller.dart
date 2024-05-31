@@ -6,21 +6,6 @@ import 'package:formulario_ejemplo/vistas/pacientes/pacientes_view.dart';
 class NavigationController {
   int indice = 0;
 
-  // Widget vistas(indice) {
-  //   switch (indice) {
-  //     case 0:
-  //       return const Text('Inicio', style: TextStyle(fontSize: 30));
-  //     case 1:
-  //       return const Text('Pacientes', style: TextStyle(fontSize: 30));
-  //     case 2:
-  //       return const Text('Graficas', style: TextStyle(fontSize: 30));
-  //     case 3:
-  //       return const Text('Crear Formulario', style: TextStyle(fontSize: 30));
-  //     default:
-  //       return const Text('Error');
-  //   }
-  // }
-
   Widget get vistas {
     switch (indice) {
       case 0:
