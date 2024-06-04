@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-//ponte a chambear juanca
 class CustomDropDonButton extends StatefulWidget {
   final String nombre;
   final Function(String) alCambiar;
@@ -32,23 +31,22 @@ class _CustomDropDonButtonState extends State<CustomDropDonButton> {
             ),
           ],
         ),
-
+        const SizedBox(height: 10),
         Container(
+          height: 60,
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey.shade700),
             borderRadius: BorderRadius.circular(5),
           ),
           child: DropdownButton<String>(
-            //donde se va a poner la opcion seleccionada
             value: seleccion,
             items: [
-              //for each
               for (String opciones in widget.opciones)
                 DropdownMenuItem(
                   value: opciones,
                   child: Text(opciones),
                 )
-            ], //:00
+            ],
             onChanged: (String? value) {
               setState(() {
                 seleccion = value;
@@ -58,7 +56,7 @@ class _CustomDropDonButtonState extends State<CustomDropDonButton> {
               });
             },
             underline: Container(),
-            hint: Text(widget.nombre),
+            hint: const Text('Selecciona una opción'),
             isExpanded: true,
             padding: const EdgeInsets.all(10),
           ),

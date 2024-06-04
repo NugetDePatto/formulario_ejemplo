@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
   final String nombre;
-  // final String respuesta;
   final Function(String) alCambiar;
 
   const CustomTextField({

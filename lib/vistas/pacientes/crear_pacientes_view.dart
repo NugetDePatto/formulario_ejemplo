@@ -14,7 +14,6 @@ class CrearPacienteView extends StatefulWidget {
 
 class _CrearPacienteViewState extends State<CrearPacienteView> {
   CrearPacientesController controller = CrearPacientesController();
-  String nombre = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,23 +26,17 @@ class _CrearPacienteViewState extends State<CrearPacienteView> {
           children: [
             CustomTextField(
               nombre: 'Nombre del paciente',
-              alCambiar: (valor) {
-                print(valor); //les toca a los que faltaron ayer dijiste que no
-              },
+              alCambiar: (valor) {},
             ),
             const SizedBox(height: 20),
             CustomTextField(
               nombre: 'Matricula del paciente',
-              alCambiar: (valor) {
-                print(valor);
-              },
+              alCambiar: (valor) {},
             ),
             const SizedBox(height: 20),
             CustomDropDonButton(
               nombre: 'Facultad',
-              alCambiar: (valor) {
-                print(valor);
-              },
+              alCambiar: (valor) {},
               opciones: const [
                 'Facultad de Enfermería',
                 'Facultad de Ingeniería',
@@ -58,26 +51,21 @@ class _CrearPacienteViewState extends State<CrearPacienteView> {
             const SizedBox(height: 20),
             CustomDateTextBox(
               nombre: 'Fecha de Nacimiento',
-              alCambiar: (DateTime date) {
-                print(date);
-              },
+              alCambiar: (DateTime date) {},
             ),
             const SizedBox(height: 20),
             CustomRadioButton(
               nombre: 'Sexo',
-              alCambiar: (value) {
-                print(value);
-              },
+              alCambiar: (value) {},
               opciones: const [
                 'Femenino',
                 'Masculino',
                 'Prefiero no decirlo',
               ],
             ),
+            const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                print(nombre);
-              },
+              onPressed: () {},
               child: const Text('Guardar'),
             ),
           ],

@@ -21,7 +21,6 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        //aqui
         Row(
           children: [
             Text(

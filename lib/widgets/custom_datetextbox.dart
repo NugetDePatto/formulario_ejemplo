@@ -1,4 +1,5 @@
 import 'package:cupertino_date_textbox/cupertino_date_textbox.dart';
+
 import 'package:flutter/material.dart';
 
 class CustomDateTextBox extends StatefulWidget {
@@ -32,7 +33,7 @@ class _CustomDateTextBoxState extends State<CustomDateTextBox> {
           initialValue: DateTime.now(),
           //opcion 1
           // onDateChange: (DateTime date) {
-          // print(''algo);
+          // print('algo');
           //   widget.alCambiar(date);
           // },
           //opcion 2
