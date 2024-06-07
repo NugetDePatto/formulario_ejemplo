@@ -1,5 +1,5 @@
 import 'package:cupertino_date_textbox/cupertino_date_textbox.dart';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomDateTextBox extends StatefulWidget {
@@ -39,6 +39,7 @@ class _CustomDateTextBoxState extends State<CustomDateTextBox> {
           //opcion 2
           onDateChange: widget.alCambiar,
           hintText: widget.nombre,
+          hintColor: CupertinoColors.link,
         ),
       ],
     );

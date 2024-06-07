@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   cupertino_date_textbox: ^1.0.3
   date_field: ^5.2.1
+  hive: ^2.2.3
 
 dev_dependencies:
   flutter_test:
