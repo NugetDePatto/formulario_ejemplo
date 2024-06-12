@@ -30,7 +30,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
         const SizedBox(height: 10),
         TextField(
           decoration: const InputDecoration(
-            border: OutlineInputBorder(),
+            border: OutlineInputBorder(
+                // borderRadius: BorderRadius.circular(50),
+                ),
           ),
           onChanged: widget.alCambiar,
         ),
